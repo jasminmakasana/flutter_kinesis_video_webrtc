@@ -172,7 +172,7 @@ class SignalingClient {
       "AWS4-HMAC-SHA256",
       dateTimeString,
       "$dateString/$region/kinesisvideo/aws4_request",
-      sha([
+      await sha([
         "GET",
         "/",
         createQueryString(queryParams),
