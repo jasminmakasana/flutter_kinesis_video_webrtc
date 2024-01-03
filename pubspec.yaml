@@ -1,8 +1,8 @@
 name: flutter_kinesis_video_webrtc
 description: is a Flutter package that enables seamless integration between AWS Kinesis Video Streams and WebRTC technology within your Flutter applications.
-version: 0.0.4
+version: 0.0.6
 license: MIT
-homepage: https://github.com/cloudwebrtc/flutter-webrtc
+homepage: https://github.com/flutter-webrtc/flutter-webrtc.git
 
 platforms:
   ios:
@@ -15,7 +15,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_lints: ^2.0.0
   crypto: ^3.0.3
   aws_client: ^0.4.0
   aws_kinesis_video_signaling_api: ^2.0.0

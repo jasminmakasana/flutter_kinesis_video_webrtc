@@ -13,3 +13,11 @@
 ## 0.0.4
 
 * correction in README.md
+
+## 0.0.5
+
+* add example repository github link
+
+## 0.0.6
+
+* bug fix
