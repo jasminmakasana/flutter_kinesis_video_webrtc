@@ -9,3 +9,7 @@
 ## 0.0.3
 
 * bug fixing
+
+## 0.0.4
+
+* correction in README.md

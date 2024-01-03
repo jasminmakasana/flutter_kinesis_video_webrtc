@@ -16,10 +16,10 @@ and the Flutter guide for
 ```dart
 peerConnection() async {
   SignalingClient _signalingClient = SignalingClient(
-    channelName: 'YOUR_AWS_ACCESS_KEY',
-    accessKey: 'YOUR_AWS_SECRET_KEY',
-    secretKey: 'YOUR_REGION',
-    region: 'YOUR_CHANNEL_NAME',
+    accessKey: 'YOUR_AWS_ACCESS_KEY',
+    secretKey: 'YOUR_AWS_SECRET_KEY',
+    region: 'YOUR_REGION',
+    channelName: 'YOUR_CHANNEL_NAME',
   );
 
   await _signalingClient.init();
