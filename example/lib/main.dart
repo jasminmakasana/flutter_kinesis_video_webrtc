@@ -48,7 +48,7 @@ class _FlutterKinesisVideoWebrtcExampleState
 
   @override
   void initState() {
-    /// for not type manually to check app working or not
+    // for not type manually to check app working or not
     // _accessKeyController.text = 'YOUR_AWS_ACCESS_KEY';
     // _secretKeyController.text = 'YOUR_AWS_SECRET_KEY';
     // _regionController.text = 'YOUR_REGION';
@@ -88,7 +88,7 @@ class _FlutterKinesisVideoWebrtcExampleState
       setState(() {});
     };
 
-    /// for send your audio and video
+    // for send your audio and video
     if (sendAudio || sendVideo) {
       _localStream = await navigator.mediaDevices.getUserMedia({
         'audio': sendAudio,

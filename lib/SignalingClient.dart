@@ -42,11 +42,22 @@ import 'Utils/encoded_strings_generatore.dart';
 /// or authentication fails. Throws a `SignalingChannelException` if there's an
 /// issue establishing or retrieving the signaling channel.
 class SignalingClient {
+  /// AWS credentials [accessKey] put your AWS access key
   String accessKey;
+
+  /// AWS credentials [secretKey] put your AWS secret key
   String secretKey;
+
+  /// AWS credentials [region] put your region
   String region;
+
+  /// Signaling channel information
   String channelName;
+
+  /// [clientId] is option if you not provide it automatic generate
   String? clientId;
+
+  /// [expires] default value is 299
   int expires;
 
   SignalingClient({
@@ -58,8 +69,13 @@ class SignalingClient {
     this.expires = 299,
   });
 
+  ///ice servers list [iceServers] use for create SDP offer for peer connection
   List<Map<String, dynamic>>? iceServers;
+
+  /// [signedQueryParams] this map constrain Signed Query Params for aws web socket connection
   Map<String, dynamic>? signedQueryParams;
+
+  /// [domain] use for creating a SimpleWebSocket instance with a specified domain
   String? domain;
 
   /// after Initializes the AWS signaling channel for real-time communication.
@@ -84,7 +100,8 @@ class SignalingClient {
 
     DescribeSignalingChannelOutput describeSignalingChannelOutput =
         await kinesisVideoClient.describeSignalingChannel(
-            channelName: channelName);
+      channelName: channelName,
+    );
 
     if (kDebugMode) {
       print(
@@ -168,6 +185,7 @@ class SignalingClient {
 
     Uint8List signingKey =
         await getSignatureKey(dateString, secretKey, region, "kinesisvideo");
+
     String stringToSign = [
       "AWS4-HMAC-SHA256",
       dateTimeString,

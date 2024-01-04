@@ -25,3 +25,11 @@
 ## 0.0.7
 
 * add homepage
+
+## 0.0.8
+
+* add documentation
+
+## 0.0.9
+
+* bug fix
