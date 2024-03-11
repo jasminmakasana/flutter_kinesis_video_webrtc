@@ -92,7 +92,6 @@ class SimpleWebSocket {
       HttpClientResponse response = await request.close();
       Socket socket = await response.detachSocket();
       var webSocket = WebSocket.fromUpgradedSocket(socket, serverSide: false);
-      socket.close();
 
       return webSocket;
     } catch (e) {

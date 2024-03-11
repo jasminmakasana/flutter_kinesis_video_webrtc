@@ -33,3 +33,7 @@
 ## 0.0.9
 
 * bug fix
+
+## 1.0.0 
+
+* final release

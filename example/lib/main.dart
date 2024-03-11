@@ -70,10 +70,10 @@ class _FlutterKinesisVideoWebrtcExampleState
 
   peerConnection() async {
     _signalingClient = SignalingClient(
-      channelName: _channelNameController.text,
-      accessKey: _accessKeyController.text,
-      secretKey: _secretKeyController.text,
-      region: _regionController.text,
+      channelName: _channelNameController.text.trim(),
+      accessKey: _accessKeyController.text.trim(),
+      secretKey: _secretKeyController.text.trim(),
+      region: _regionController.text.trim(),
     );
 
     await _signalingClient.init();
