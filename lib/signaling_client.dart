@@ -48,6 +48,9 @@ class SignalingClient {
   /// AWS credentials [secretKey] put your AWS secret key
   String secretKey;
 
+  /// AWS credentials [sessionToken] put your AWS session token
+  String? sessionToken;
+
   /// AWS credentials [region] put your region
   String region;
 
@@ -66,6 +69,7 @@ class SignalingClient {
     required this.accessKey,
     required this.secretKey,
     required this.region,
+    this.sessionToken,
     this.expires = 299,
   });
 
@@ -91,6 +95,7 @@ class SignalingClient {
     AwsClientCredentials awsCredentials = AwsClientCredentials(
       accessKey: accessKey,
       secretKey: secretKey,
+      sessionToken: sessionToken,
     );
 
     KinesisVideo kinesisVideoClient = KinesisVideo(
@@ -135,6 +140,7 @@ class SignalingClient {
       credentials: KVSChannels.AwsClientCredentials(
         accessKey: accessKey,
         secretKey: secretKey,
+        sessionToken: sessionToken,
       ),
       endpointUrl: getSignalingChannelEndpointOutput.resourceEndpointList
           ?.firstWhere((element) => element.protocol == ChannelProtocol.https)
@@ -182,6 +188,10 @@ class SignalingClient {
       'X-Amz-Expires': expires.toString(),
       'X-Amz-SignedHeaders': ['host'].join(';'),
     };
+
+    if (sessionToken != null) {
+      queryParams['X-Amz-Security-Token'] = sessionToken;
+    }
 
     Uint8List signingKey =
         await getSignatureKey(dateString, secretKey, region, "kinesisvideo");
